@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Choreslist</title>
+        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Choreslist</h1>
+            </header>
+            <section >
+                <form onsubmit="return false">
+                    <input id="input-el" placeholder="Do dishes" type="text">
+                    <button id="add-btn">-></button>
+                    <button id="delete-btn">✕</button>
+                    <div id="chores-added"><ul>You can add your chores here by pressing arrow after writing your chore in the input field. If you completed a chore, you can click the chore to remove. Cross button clears all chores. </ul></div>
+                </form>
+                <h4 class="completed-chores">Completed chores</h4>
+            </section>
+        </div>        
+        <script src="index.js"></script>
+    </body>
+</html>
