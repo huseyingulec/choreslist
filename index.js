@@ -29,8 +29,8 @@ addBtn.addEventListener("click", function(){
 })
 
 deleteBtn.addEventListener("click", function(){ // listens for delete button
-    if (myChores.length >= 1) {         // checks if there are any inputs
-        const confirmed = window.confirm("do you want to delete all chores?")       // asks confirmation
+    if (totalCompletedChores >= 1 || myChores.length >= 1) {         // checks if there are any inputs or completed chores
+        const confirmed = window.confirm("do you want to delete reset everything?")       // asks confirmation
         if (confirmed) {
            clearAll() // if confirmed clears all inputs
         }
@@ -40,6 +40,8 @@ deleteBtn.addEventListener("click", function(){ // listens for delete button
 function clearAll() {
     myChores = []   // clears array
     choresAdded.innerHTML = "<ul>You can add your chores here by pressing arrow after writing your chore in the input field. If you completed a chore, you can click the chore to remove. Cross button clears all chores. </ul>"   // clears html
+    totalCompletedChores = 0
+    completedChores.textContent = "Completed chotes"
     localStorage.clear()    // clears local storage
 }
 
@@ -58,14 +60,15 @@ function render(chores) {   // renders chores to the html
 choresAdded.addEventListener("click", function(event){      // listens for all Chores added section
     if(event.target.dataset.btn) {      // if there are any elements in the section
         totalCompletedChores++
-        completedChores.textContent = "Completed chotes - " + totalCompletedChores
         let index = myChores.indexOf(event.target.dataset.btn)      // gets index of clicked element
         myChores.splice(index, 1)   // removes clicked element from the array
         render(myChores)    // renders array after removing
         localStorage.setItem("myChores", JSON.stringify(myChores)) // updates localStorage after removal
         if (!myChores.length) {     // when array is empty, clears all elements from the html
-            clearAll()
+            choresAdded.innerHTML = "<ul>You can add your chores here by pressing arrow after writing your chore in the input field. If you completed a chore, you can click the chore to remove. Cross button resets everything. </ul>"   // clears html
+            localStorage.clear()    // clears local storage
         }
     }
+    completedChores.textContent = "Completed chotes - " + totalCompletedChores
 })
 
