@@ -6,10 +6,10 @@ body {
 }
 
 .container {
-    width: 500px;
+    width: 380px;
     min-width: 300px;
     margin: 60px auto;
-    padding: 20px 60px;
+    padding: 20px 40px;
     background-color: #FEFEFE;
     border: none;
     border-radius: 10px;   
@@ -32,14 +32,15 @@ button {
 
 button,
 input,
-#chores-added ul {
+#chores-added ul,
+.completed-chores {
     font-size: 20px;
     border: none;
     border-radius: 5px;
 }
 
 input {
-    width: 378px;
+    width: 255px;
     height: 50px;
     text-align: center;
     background-color: #EEEEEE;
